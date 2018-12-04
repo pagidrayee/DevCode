@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://service.webapp.frameworkonly.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://service.webapp.frameworkonly.com" xmlns:intf="http://service.webapp.frameworkonly.com" xmlns:tns1="http://domain.webapp.frameworkonly.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://service.webapp.frameworkonly.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://domain.webapp.frameworkonly.com"/>
+   <element name="deleteEmployee">
+    <complexType>
+     <sequence>
+      <element name="empId" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteEmployeeResponse">
+    <complexType>
+     <sequence>
+      <element name="deleteEmployeeReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="saveEmployee">
+    <complexType>
+     <sequence>
+      <element name="emp" type="tns1:Employee"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="saveEmployeeResponse">
+    <complexType>
+     <sequence>
+      <element name="saveEmployeeReturn" type="tns1:Employee"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="editEmployee">
+    <complexType>
+     <sequence>
+      <element name="emp" type="tns1:Employee"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="editEmployeeResponse">
+    <complexType>
+     <sequence>
+      <element name="editEmployeeReturn" type="tns1:Employee"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getAllEmployees">
+    <complexType/>
+   </element>
+   <element name="getAllEmployeesResponse">
+    <complexType>
+     <sequence>
+      <element name="getAllEmployeesReturn" type="impl:ArrayOf_xsd_anyType"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="ArrayOf_xsd_anyType">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="xsd:anyType"/>
+    </sequence>
+   </complexType>
+   <element name="findEmployee">
+    <complexType>
+     <sequence>
+      <element name="empId" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="findEmployeeResponse">
+    <complexType>
+     <sequence>
+      <element name="findEmployeeReturn" type="tns1:Employee"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://domain.webapp.frameworkonly.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://service.webapp.frameworkonly.com"/>
+   <complexType name="Employee">
+    <sequence>
+     <element name="empDesignation" nillable="true" type="xsd:string"/>
+     <element name="empName" nillable="true" type="xsd:string"/>
+     <element name="empSalary" nillable="true" type="xsd:float"/>
+     <element name="id" nillable="true" type="xsd:long"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="editEmployeeRequest">
+
+      <wsdl:part element="impl:editEmployee" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="saveEmployeeRequest">
+
+      <wsdl:part element="impl:saveEmployee" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="findEmployeeRequest">
+
+      <wsdl:part element="impl:findEmployee" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteEmployeeResponse">
+
+      <wsdl:part element="impl:deleteEmployeeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAllEmployeesResponse">
+
+      <wsdl:part element="impl:getAllEmployeesResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAllEmployeesRequest">
+
+      <wsdl:part element="impl:getAllEmployees" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteEmployeeRequest">
+
+      <wsdl:part element="impl:deleteEmployee" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="editEmployeeResponse">
+
+      <wsdl:part element="impl:editEmployeeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="findEmployeeResponse">
+
+      <wsdl:part element="impl:findEmployeeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="saveEmployeeResponse">
+
+      <wsdl:part element="impl:saveEmployeeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="EmployeeServiceImplementation">
+
+      <wsdl:operation name="deleteEmployee">
+
+         <wsdl:input message="impl:deleteEmployeeRequest" name="deleteEmployeeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:deleteEmployeeResponse" name="deleteEmployeeResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="saveEmployee">
+
+         <wsdl:input message="impl:saveEmployeeRequest" name="saveEmployeeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:saveEmployeeResponse" name="saveEmployeeResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="editEmployee">
+
+         <wsdl:input message="impl:editEmployeeRequest" name="editEmployeeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:editEmployeeResponse" name="editEmployeeResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAllEmployees">
+
+         <wsdl:input message="impl:getAllEmployeesRequest" name="getAllEmployeesRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getAllEmployeesResponse" name="getAllEmployeesResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="findEmployee">
+
+         <wsdl:input message="impl:findEmployeeRequest" name="findEmployeeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:findEmployeeResponse" name="findEmployeeResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="EmployeeServiceImplementationSoapBinding" type="impl:EmployeeServiceImplementation">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="deleteEmployee">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteEmployeeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteEmployeeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="saveEmployee">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="saveEmployeeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="saveEmployeeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="editEmployee">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="editEmployeeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="editEmployeeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAllEmployees">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getAllEmployeesRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getAllEmployeesResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="findEmployee">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="findEmployeeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="findEmployeeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="EmployeeServiceImplementationService">
+
+      <wsdl:port binding="impl:EmployeeServiceImplementationSoapBinding" name="EmployeeServiceImplementation">
+
+         <wsdlsoap:address location="http://localhost:8080/demo/services/EmployeeServiceImplementation"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

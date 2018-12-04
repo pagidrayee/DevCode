@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="tab-content">
+					  
+					      <div id="home" class="tab-pane fade in active">
+					  
+					     <div class="panel-body">
+					              <table class="table table-bordered">
+									<thead>
+									   <tr class="btn-success">
+									     <th>Name</th>
+									     <th>Designation</th>
+									     <th>Salary</th>
+									     <th>ID</th>
+									     <th>Operation</th>
+									   </tr>
+									</thead>
+									<tbody>
+									     <tr th:if="${#lists.isEmpty(allEmployees)}" class="btn-warning">
+									        <td colspan="4" align="center">No Employee Registered Yet!!!</td> 
+									     </tr>
+										   <tr th:each="emp : ${allEmployees}">
+										     <td th:text="${emp.empName}"></td>
+										     <td th:text="${emp.empDesignation}"></td>
+										     <td th:text="${emp.empSalary}"></td>
+										     <td align="center">
+										        <a th:href="@{/employee/edit/{id}(id=${emp.id})}"><span class="glyphicon glyphicon-edit"></span></a> &nbsp; &nbsp;
+										        <a th:href="@{/employee/delete/{id}(id=${emp.id})}"><span class="glyphicon glyphicon-trash"></span></a>
+										     </td>
+										   </tr>
+									    
+									</tbody>
+								</table>
+					      </div>
+					      </div>
+					      </div>
+					      
+</body>
+</html>
